@@ -17,6 +17,9 @@ type Device struct {
 
 func NewDevice(
 	name string,
+	ip string,
+	publicKey string,
+	status string,
 	createdAt time.Time,
 	updatedAt time.Time) (*Device, error) {
 	deviceName, err := types.NewName(name)
@@ -29,9 +32,27 @@ func NewDevice(
 		return nil, err
 	}
 
+	devideIp, err := types.NewIp(ip)
+	if err != nil {
+		return nil, err
+	}
+
+	devicePublicKey, err := types.NewPublicKey(publicKey)
+	if err != nil {
+		return nil, err
+	}
+
+	deviceStatus, err := types.NewStatus(status)
+	if err != nil {
+		return nil, err
+	}
+
 	return &Device{
 		ID:        deviceID,
 		Name:      deviceName,
+		Ip:        devideIp,
+		PublicKey: devicePublicKey,
+		Status:    deviceStatus,
 		CreatedAt: createdAt,
 		UpdatedAt: updatedAt,
 	}, nil
