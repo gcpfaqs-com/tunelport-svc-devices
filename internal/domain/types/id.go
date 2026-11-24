@@ -2,12 +2,9 @@ package types
 
 import (
 	"crypto/rand"
-	"errors"
 	"fmt"
 	"regexp"
 )
-
-var ErrInvalidID = errors.New("invalid id must be an UUID v4 string")
 
 type ID struct {
 	value string

@@ -6,10 +6,13 @@ import (
 )
 
 type Device struct {
-	ID        types.ID   `json:"id"`
-	Name      types.Name `json:"name"`
-	CreatedAt time.Time  `json:"created_at"`
-	UpdatedAt time.Time  `json:"updated_at"`
+	ID        types.ID        `json:"id"`
+	Name      types.Name      `json:"name"`
+	Ip        types.Ip        `json:"ip"`
+	PublicKey types.PublicKey `json:"public_key"`
+	Status    types.Status    `json:"status"`
+	CreatedAt time.Time       `json:"created_at"`
+	UpdatedAt time.Time       `json:"updated_at"`
 }
 
 func NewDevice(

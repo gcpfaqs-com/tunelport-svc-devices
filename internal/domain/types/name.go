@@ -1,15 +1,17 @@
 package types
 
-import "errors"
+import (
+	"regexp"
+)
 
-var ErrInvalidName = errors.New("invalid name must be a non-empty string between 5 and 50 characters")
+var nameSlugRegex = regexp.MustCompile(`^[a-zA-Z][a-zA-Z0-9-]{3,48}[a-zA-Z0-9]$`)
 
 type Name struct {
 	value string
 }
 
 func NewName(s string) (Name, error) {
-	if len(s) < 5 || len(s) > 50 {
+	if !nameSlugRegex.MatchString(s) {
 		return Name{}, ErrInvalidName
 	}
 
@@ -18,6 +20,6 @@ func NewName(s string) (Name, error) {
 	}, nil
 }
 
-func (t *Name) Value() string {
-	return t.value
+func (n Name) Value() string {
+	return n.value
 }

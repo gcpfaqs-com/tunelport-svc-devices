@@ -12,7 +12,7 @@ import (
 )
 
 var updateId string = "43b14e10-e18a-4f88-9bcf-cd83698e5ba7"
-var updateName string = "any valid name"
+var updateName string = "any-valid-name"
 
 func TestItShouldUpdateAResource(t *testing.T) {
 	repository := test.NewStubRepository()

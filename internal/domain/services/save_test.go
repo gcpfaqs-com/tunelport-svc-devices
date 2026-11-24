@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var newName string = "any valid name"
+var newName string = "any-valid-name"
 
 func TestItShouldSaveAResource(t *testing.T) {
 	repository := test.NewStubRepository()
